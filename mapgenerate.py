@@ -4,21 +4,6 @@ import matplotlib.pyplot as plt
 import contextily as ctx
 import ee
 
-# Set visualization parameters.
-vis_params = {
-  'min': 0,
-  'mplt': 4000,
-    'transparency': 0.5
-}
-
-def savemap():
-    data=gpd.read_file('maps/hermes_NPL_everest_4.shp')
-    data=data.to_crs(epsg=4326)
-    print(data.loc[(data['DISTRICT']=='SALYAN'),'PALIKA'].to_list())#.to_csv('aa.csv'))
-    #data=data.loc[(data['PALIKA']=='Chaurjahari')|(data['PALIKA']=='Bheri')|(data['PALIKA']=='Sani Bheri')|(data['PALIKA']=='Kumakhmalika')]
-    data=data.loc[(data['PALIKA']=='Chaurjahari')]
-    data.to_file('map.shp')
-#savemap()
 data=gpd.read_file('map.shp')
 dats=pd.read_csv('dataset.csv')
 dats['nontap']=0
